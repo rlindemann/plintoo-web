@@ -60,7 +60,7 @@
   footer { font-size: 13px; color: var(--mute); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   @media (prefers-reduced-motion: no-preference) {
     main > * { opacity: 0; transform: translateY(8px); animation: rise .7s ease forwards; }
-    h1 { animation-delay: .1s; } p.lead { animation-delay: .35s; } p.meta { animation-delay: .5s; } form { animation-delay: .65s; }
+    h1 { animation-delay: .1s; } p.lead { animation-delay: .35s; } form { animation-delay: .65s; }
     @keyframes rise { to { opacity: 1; transform: none; } }
   }
 </style>
@@ -74,16 +74,10 @@
     <span>Ask it why, three years on.</span>
   </h1>
   <p class="lead">We build the structure underneath the tools: the part that still has the answer when every tool, every model and every person has changed.</p>
-  <p class="meta">For practices of 5 to 50. London. First cohort [season, year].</p>
   <form action="[FORM_ENDPOINT]" method="post">
     <input type="email" name="email" placeholder="your email" required autocomplete="email">
     <button type="submit">Request access</button>
   </form>
 </main>
-
-<footer>
-  <span>Built by an architect.</span>
-  <span>DEIXIS DESIGN LTD, London</span>
-</footer>
 </body>
 </html>
