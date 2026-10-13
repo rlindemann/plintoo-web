@@ -4,80 +4,265 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plintoo</title>
-<meta name="description" content="The structure underneath an architecture practice's tools. First cohort for practices of 5 to 50.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="One command centre for an architecture practice's tools.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0a0a0a;
+    --bg2: #121211;
     --fg: #f2f2f0;
     --mute: #8a8a86;
     --line: #2a2a28;
+    --max: 1120px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; }
+  html { scroll-behavior: smooth; }
   body {
-    background: var(--bg);
-    color: var(--fg);
+    background: var(--bg); color: var(--fg);
     font-family: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 32px 24px;
+    -webkit-font-smoothing: antialiased; line-height: 1.45;
   }
-  header { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg); }
-  main { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 880px; }
-  h1 {
-    font-weight: 500;
-    font-size: clamp(32px, 6vw, 68px);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-  }
-  h1 span { display: block; }
-  p.lead {
-    margin-top: 32px;
-    font-size: clamp(17px, 2vw, 21px);
-    line-height: 1.45;
-    max-width: 640px;
-    color: var(--fg);
-  }
-  p.meta { margin-top: 28px; font-size: 15px; color: var(--mute); }
-  form { margin-top: 36px; display: flex; gap: 0; max-width: 520px; border-bottom: 1px solid var(--fg); }
-  input[type="email"] {
-    flex: 1; background: transparent; border: 0; outline: 0; color: var(--fg);
-    font: inherit; font-size: 17px; padding: 14px 0; min-width: 0;
-  }
-  input::placeholder { color: var(--mute); }
-  button {
-    background: transparent; border: 0; color: var(--fg); font: inherit; font-size: 15px;
-    letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; padding: 14px 0 14px 16px;
-    white-space: nowrap;
-  }
-  button:hover { color: var(--mute); }
-  footer { font-size: 13px; color: var(--mute); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  a { color: inherit; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  section { padding: 120px 0; border-top: 1px solid var(--line); }
+  h1 { font-weight: 500; font-size: clamp(40px, 7vw, 88px); line-height: 1.02; letter-spacing: -0.03em; }
+  h2 { font-weight: 500; font-size: clamp(30px, 4.5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; }
+  h3 { font-weight: 500; font-size: 20px; }
+  p.sub { font-size: clamp(18px, 2vw, 22px); color: var(--mute); max-width: 640px; margin-top: 24px; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .btn { display: inline-block; padding: 14px 22px; border: 1px solid var(--fg); text-decoration: none; font-size: 15px; letter-spacing: 0.04em; }
+  .btn.solid { background: var(--fg); color: var(--bg); }
+  .btns { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
+  .gap { color: var(--mute); }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(10,10,10,.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  nav .logo { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; }
+  nav .links { display: flex; gap: 24px; font-size: 14px; color: var(--mute); }
+  nav .links a { text-decoration: none; }
+  @media (max-width: 640px) { nav .links a:not(:last-child) { display: none; } }
+
+  /* hero */
+  .hero { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; border-top: 0; padding: 80px 0; }
+  .wall { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1px; opacity: .14; pointer-events: none; }
+  .wall span { border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--fg); aspect-ratio: 1.6; }
+  .hero .wrap { position: relative; }
+  .cmd { margin-top: 48px; max-width: 720px; border: 1px solid var(--line); background: var(--bg2); padding: 18px 20px; font-size: 15px; }
+  .cmd .caret { display: inline-block; width: 9px; height: 18px; background: var(--fg); vertical-align: -3px; margin-left: 2px; }
   @media (prefers-reduced-motion: no-preference) {
-    main > * { opacity: 0; transform: translateY(8px); animation: rise .7s ease forwards; }
-    h1 { animation-delay: .1s; } p.lead { animation-delay: .35s; } form { animation-delay: .65s; }
-    @keyframes rise { to { opacity: 1; transform: none; } }
+    .wall span { animation: in .6s ease both; }
+    .cmd .caret { animation: blink 1s steps(1) infinite; }
+    @keyframes in { from { opacity: 0; transform: translateY(6px); } }
+    @keyframes blink { 50% { opacity: 0; } }
   }
+
+  /* logo bar */
+  .bar { padding: 28px 0; border-top: 1px solid var(--line); overflow: hidden; }
+  .bar .track { display: flex; gap: 56px; white-space: nowrap; font-size: 15px; color: var(--mute); }
+  @media (prefers-reduced-motion: no-preference) { .bar .track { animation: slide 30s linear infinite; } @keyframes slide { to { transform: translateX(-50%); } } }
+
+  /* demo */
+  .video { margin-top: 48px; aspect-ratio: 16/9; border: 1px solid var(--line); background: var(--bg2); display: flex; align-items: center; justify-content: center; color: var(--mute); font-size: 15px; }
+  .caption { margin-top: 16px; font-size: 14px; color: var(--mute); }
+
+  /* grids */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 56px; }
+  .grid3 > div { background: var(--bg); padding: 32px 28px; }
+  .grid3 p { color: var(--mute); margin-top: 10px; font-size: 16px; }
+  @media (max-width: 800px) { .grid3 { grid-template-columns: 1fr; } }
+
+  .num { font-size: clamp(40px, 6vw, 72px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+  .num + p { margin-top: 12px; }
+
+  .steps { counter-reset: s; }
+  .steps > div::before { counter-increment: s; content: "0" counter(s); display: block; font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--mute); margin-bottom: 18px; }
+
+  /* parallax band */
+  .band { position: relative; height: 60vh; min-height: 360px; overflow: hidden; border-top: 1px solid var(--line); }
+  .band .layer { position: absolute; inset: -20% 0; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: 12px 28px; font-size: clamp(22px, 3vw, 36px); color: var(--line); will-change: transform; }
+  .band .front { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 24px; }
+
+  /* form */
+  form { margin-top: 40px; max-width: 560px; display: grid; gap: 0; }
+  form input { background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--fg); font: inherit; font-size: 17px; padding: 16px 0; outline: 0; }
+  form input:focus { border-bottom-color: var(--fg); }
+  form input::placeholder { color: var(--mute); }
+  form button { margin-top: 28px; justify-self: start; background: var(--fg); color: var(--bg); border: 0; padding: 14px 22px; font: inherit; font-size: 15px; letter-spacing: 0.04em; cursor: pointer; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0; font-size: 14px; color: var(--mute); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  footer .links { display: flex; gap: 20px; flex-wrap: wrap; }
+  footer a { text-decoration: none; }
 </style>
 </head>
 <body>
-<header>Plintoo</header>
 
-<main>
-  <h1>
-    <span>Every practice can show what it built.</span>
-    <span>Ask it why, three years on.</span>
-  </h1>
-  <p class="lead">We build the structure underneath the tools: the part that still has the answer when every tool, every model and every person has changed.</p>
-  <form action="[FORM_ENDPOINT]" method="post">
-    <input type="email" name="email" placeholder="your email" required autocomplete="email">
-    <button type="submit">Request access</button>
-  </form>
-</main>
+<nav>
+  <div class="wrap">
+    <div class="logo">Plintoo</div>
+    <div class="links">
+      <a href="#product">Product</a>
+      <a href="#run">How you run it</a>
+      <a href="#apply">Early access</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 1 HERO -->
+<header class="hero">
+  <div class="wall" id="wall"></div>
+  <div class="wrap">
+    <h1>Run every tool<br>from one line.</h1>
+    <p class="sub">Give your practice one command centre. Revit, Rhino, QGIS, InDesign, Outlook. Any model behind it.</p>
+    <div class="cmd mono" aria-label="Example instruction">&gt; <span id="typed"></span><span class="caret"></span></div>
+    <div class="btns">
+      <a class="btn solid" href="#apply">Start free</a>
+      <a class="btn" href="#apply">Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<!-- 2 LOGO BAR -->
+<div class="bar" aria-label="Tools connected">
+  <div class="track">
+    <span>Revit</span><span>Rhino</span><span>QGIS</span><span>InDesign</span><span>Outlook</span><span>Teams</span><span>Excel</span>
+    <span>Revit</span><span>Rhino</span><span>QGIS</span><span>InDesign</span><span>Outlook</span><span>Teams</span><span>Excel</span>
+  </div>
+</div>
+
+<!-- 3 DEMO -->
+<section id="product">
+  <div class="wrap">
+    <h2>One instruction. <span class="gap">[n]</span> apps.</h2>
+    <div class="video">[recording from the build: autoplay, muted, under one minute]</div>
+    <p class="caption mono">"Flood layer on the Hackney site. Rejected roof option next to the kept one. Four boards for 3pm."</p>
+  </div>
+</section>
+
+<!-- PARALLAX BAND -->
+<div class="band" id="band">
+  <div class="layer" id="layer">
+    <span>2015 · 6 tools</span><span>2018 · 8 tools</span><span>2021 · 10 tools</span><span>2024 · 12 tools, 4 assistants</span><span>2027 · every tool, its own assistant</span>
+    <span>Revit</span><span>Rhino</span><span>QGIS</span><span>InDesign</span><span>Outlook</span><span>Teams</span><span>Excel</span><span>Bluebeam</span><span>Miro</span><span>Planning portal</span>
+  </div>
+  <div class="front"><h2>Every tool is getting an AI.<br><span class="gap">You need one.</span></h2></div>
+</div>
+
+<!-- 4 CAPABILITIES -->
+<section>
+  <div class="wrap">
+    <h2>What sits underneath.</h2>
+    <div class="grid3">
+      <div><h3>Any model.</h3><p>Claude, GPT, Gemini, or a local model on your own machine. Swap in one click.</p></div>
+      <div><h3>Its own memory.</h3><p>Your projects, your standards, your people. Held by you, not by a vendor.</p></div>
+      <div><h3>Every reason kept.</h3><p>Each action filed as a decision: why, on what evidence, who. Searchable years later.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 NUMBERS -->
+<section>
+  <div class="wrap">
+    <div class="grid3">
+      <div><div class="num">[n]</div><p>tools connected today</p></div>
+      <div><div class="num">[n] s</div><p>from instruction to result</p></div>
+      <div><div class="num">£[n]</div><p>per seat per month · £[n] per seat per year</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 THREE WAYS -->
+<section id="run">
+  <div class="wrap">
+    <h2>Three ways to run it.</h2>
+    <div class="grid3">
+      <div><h3>Hosted.</h3><p>We run it. You log in.</p></div>
+      <div><h3>Your machine.</h3><p>One Docker command. Your data never leaves the office.</p></div>
+      <div><h3>Built for you.</h3><p>Your workflow, your tools, a head start.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 SETUP -->
+<section>
+  <div class="wrap">
+    <h2>Set up in three steps.</h2>
+    <div class="grid3 steps">
+      <div><h3>Connect.</h3><p>Point Plintoo at the tools you already pay for.</p></div>
+      <div><h3>Ask.</h3><p>Type what you want done.</p></div>
+      <div><h3>Keep.</h3><p>Every result and its reason, filed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 WHO -->
+<section>
+  <div class="wrap">
+    <h2>For practices of 5 to 50.</h2>
+    <p class="sub">The ones who will never run their own AI infrastructure and should not be putting project files into consumer chat. Built by an architect who ran projects for twenty years and got sick of the tool count.</p>
+  </div>
+</section>
+
+<!-- 9 EARLY COHORT -->
+<section id="apply">
+  <div class="wrap">
+    <h2>First <span class="gap">[n]</span> practices.<br>Set up by hand.</h2>
+    <form action="[FORM_ENDPOINT]" method="post">
+      <input name="practice" placeholder="Practice name" required>
+      <input name="size" placeholder="Size (people)" inputmode="numeric" required>
+      <input name="email" type="email" placeholder="Email" required autocomplete="email">
+      <input name="tool" placeholder="The tool you most want to stop opening">
+      <button type="submit">Apply</button>
+    </form>
+    <p class="sub">First cohort starts <span class="gap">[date]</span>. You get <span class="gap">[what runs today]</span>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links"><a href="#product">Product</a><a href="#">Pricing</a><a href="#">Docs</a><a href="#">Security</a><a href="#">Company</a><a href="#">Legal</a></div>
+    <div>© DEIXIS DESIGN LTD</div>
+  </div>
+</footer>
+
+<script>
+  // tool wall in the hero
+  (function () {
+    var tools = ["Revit","Rhino","QGIS","InDesign","Outlook","Teams","Excel","Bluebeam","Miro","Grasshopper","SketchUp","AutoCAD","Photoshop","Enscape","Archicad","Word","PowerPoint","Planning portal","Dropbox","SharePoint"];
+    var wall = document.getElementById("wall");
+    for (var i = 0; i < 60; i++) {
+      var s = document.createElement("span");
+      s.textContent = tools[i % tools.length];
+      s.style.animationDelay = (i * 0.04) + "s";
+      wall.appendChild(s);
+    }
+  })();
+
+  // typed instruction
+  (function () {
+    var text = "Flood layer on the Hackney site. Rejected roof option next to the kept one. Four boards for 3pm.";
+    var el = document.getElementById("typed");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) { el.textContent = text; return; }
+    var i = 0;
+    (function tick() { el.textContent = text.slice(0, i++); if (i <= text.length) setTimeout(tick, 35); })();
+  })();
+
+  // parallax band
+  (function () {
+    var band = document.getElementById("band"), layer = document.getElementById("layer");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    function onScroll() {
+      var r = band.getBoundingClientRect();
+      var p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+      layer.style.transform = "translateY(" + ((p - 0.5) * -120) + "px)";
+    }
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  })();
+</script>
 </body>
 </html>
