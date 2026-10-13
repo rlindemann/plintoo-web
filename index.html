@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plintoo</title>
+<meta name="description" content="The structure underneath an architecture practice's tools. First cohort for practices of 5 to 50.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --fg: #f2f2f0;
+    --mute: #8a8a86;
+    --line: #2a2a28;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 32px 24px;
+  }
+  header { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg); }
+  main { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 880px; }
+  h1 {
+    font-weight: 500;
+    font-size: clamp(32px, 6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  h1 span { display: block; }
+  p.lead {
+    margin-top: 32px;
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.45;
+    max-width: 640px;
+    color: var(--fg);
+  }
+  p.meta { margin-top: 28px; font-size: 15px; color: var(--mute); }
+  form { margin-top: 36px; display: flex; gap: 0; max-width: 520px; border-bottom: 1px solid var(--fg); }
+  input[type="email"] {
+    flex: 1; background: transparent; border: 0; outline: 0; color: var(--fg);
+    font: inherit; font-size: 17px; padding: 14px 0; min-width: 0;
+  }
+  input::placeholder { color: var(--mute); }
+  button {
+    background: transparent; border: 0; color: var(--fg); font: inherit; font-size: 15px;
+    letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; padding: 14px 0 14px 16px;
+    white-space: nowrap;
+  }
+  button:hover { color: var(--mute); }
+  footer { font-size: 13px; color: var(--mute); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  @media (prefers-reduced-motion: no-preference) {
+    main > * { opacity: 0; transform: translateY(8px); animation: rise .7s ease forwards; }
+    h1 { animation-delay: .1s; } p.lead { animation-delay: .35s; } p.meta { animation-delay: .5s; } form { animation-delay: .65s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+<header>Plintoo</header>
+
+<main>
+  <h1>
+    <span>Every practice can show what it built.</span>
+    <span>Ask it why, three years on.</span>
+  </h1>
+  <p class="lead">We build the structure underneath the tools: the part that still has the answer when every tool, every model and every person has changed.</p>
+  <p class="meta">For practices of 5 to 50. London. First cohort [season, year].</p>
+  <form action="[FORM_ENDPOINT]" method="post">
+    <input type="email" name="email" placeholder="your email" required autocomplete="email">
+    <button type="submit">Request access</button>
+  </form>
+</main>
+
+<footer>
+  <span>Built by an architect.</span>
+  <span>DEIXIS DESIGN LTD, London</span>
+</footer>
+</body>
+</html>
