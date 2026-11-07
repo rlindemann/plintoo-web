@@ -99,3 +99,8 @@ Left off on purpose: pricing link, testimonials, Stanford and Revolut figures (o
 - Look follows `plintoo/DESIGN.md` (Barlow, Barlow Semi Condensed, IBM Plex Mono for figures, square corners, one blue) and the sign-in directions in `plintoo/research/shell/landing.html`: the London map hero (direction A) and the dial (direction E).
 - Navbar follows the DEIXIS site (`deixis/components/navbar.tsx`): centred mark that shrinks on scroll, menu button on the right, full-page blue overlay with large right-aligned items; Plintoo's four groups sit under each item.
 - The hero map, its site outlines and the "SITE 01 · 0.62 ha" label are an illustration and are labelled as one. The prototype's counters (London sites read, policies, decisions recorded) were left out because they are illustrative figures.
+
+### Revision 2026-11-07, third pass: Next.js and the v11 film
+
+- The site is now a Next.js app (App Router): `app/page.tsx`, `components/`, assets in `public/`. Vercel builds it with `npm run build`; check that the Vercel project's framework setting is "Next.js" (it was a static page before).
+- The film is v11 (`2026-11-06_manifesto_video_v11_vertical.mp4`, 1080×1920, 105 s), shown upright next to its captions. There is no landscape v11; v10 is landscape but carries the older captions. If a landscape film is wanted for the hero, render v11 in 16:9 from `2026-11-06_manifesto_video_render_v11.py`.
