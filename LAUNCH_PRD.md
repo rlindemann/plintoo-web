@@ -71,3 +71,25 @@ Hero: tool icons sliding in until the screen is full, one typed line clears them
 - Launch panel run, 2026-10-11 (seven seats; the command-centre claim was killed by three and Ralf overruled it as his positioning choice).
 - Council run, 2026-10-11 (verdict: positioning sound, style right, page downstream of the recording).
 - Maritime.sh, read 2026-10-11, for register.
+
+---
+
+## Revision 2026-11-07: page rebuilt from the 4 November pitch and the Instagram enemies
+
+`index.html` now follows this order: hero (command centre for architects and property developers, manifesto film behind it) · problem (21 October lines) · the two enemies (Rented Memory, then The Plausible Lie) · three shifts · three feature blocks (one place, own memory, own workflows and model) · the 95% split · data · who it's for · founder (origin approved 2026-11-06) · FAQ · join the pilot.
+
+Menu grouped by job, borrowed from Filevine's platform menu: Workflows, Workspaces, Data, Trust. Parts are named by what they do (Decisions, Assets, Site appraisal), not by internal names (DIKTON, Bildhaus, DeixOn); a name comes onto the site only when that part is sold as an add-on.
+
+Left off on purpose: pricing link, testimonials, Stanford and Revolut figures (originals not read), UK hosting claim (not confirmed), any "operating system" wording.
+
+### Open before this goes live, and what to do
+
+| Gap | What to do | Where it appears |
+|---|---|---|
+| "What happens if Plintoo stops?" has no answer | Write the export and self-hosting promise once it works end to end; until then delete the question | FAQ |
+| Every feature is tagged "In the pilot" | Change the tag to "Live" on anything a practice can use today | Feature blocks, data |
+| Three grey placeholder screens | Replace with real screen recordings or screenshots | Feature blocks |
+| Property developers in the hero, but no developer stories | Write two developer stories, or change the hero to architects only | Hero, who it's for |
+| Form posts to `[FORM_ENDPOINT]` | Set the form service URL | Join |
+| "Command centre" in the hero, "harness" in the body | Decide which is the headline word | Hero, how it works |
+| No menu on phones | Add a phone menu, or accept the button only | Header |
