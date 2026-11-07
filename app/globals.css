@@ -89,14 +89,15 @@ body.menu-open .status{visibility:hidden}
 @media (max-width:860px){.problem .pair{grid-template-columns:1fr}}
 
 /* ---------- Film ---------- */
-.film{border-top:1px solid var(--nrule)}
-.film .grid{display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center;margin-top:40px}
-.film .frame{position:relative;height:min(82vh,860px);aspect-ratio:9/16;border:1px solid var(--nrule);background:#000}
-.film video{width:100%;height:100%;display:block;object-fit:cover}
-.film .meta{display:flex;justify-content:space-between;margin-top:10px;font:400 12px "IBM Plex Mono";color:var(--nmuted)}
-.film .lines{margin-top:28px;font:600 clamp(24px,2.4vw,34px)/1.2 "Barlow Semi Condensed";color:var(--nmuted)}
+.film{border-top:1px solid var(--nrule);padding-bottom:0}
+.film .head{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:end;margin:28px 0 56px}
+.film .lines{font:600 clamp(22px,2.2vw,32px)/1.25 "Barlow Semi Condensed";color:var(--nmuted);text-align:right}
 .film .lines b{color:var(--ntext);font-weight:600}
-@media (max-width:900px){.film .grid{grid-template-columns:1fr}.film .frame{height:auto;width:100%}}
+.film .frame{border-top:1px solid var(--nrule);border-bottom:1px solid var(--nrule);background:#000}
+.film video{width:100%;display:block;aspect-ratio:16/9;max-height:100vh;object-fit:contain;background:#000}
+.film .meta{display:flex;justify-content:space-between;padding:14px var(--pad);font:400 12px "IBM Plex Mono";color:var(--nmuted);border-bottom:1px solid var(--nrule)}
+@media (max-width:900px){.film .head{grid-template-columns:1fr}.film .lines{text-align:left}}
+@media (max-width:640px){.film video{aspect-ratio:9/16;max-height:none}}
 
 /* ---------- Enemies ---------- */
 .enemy{border-top:1px solid var(--nrule)}

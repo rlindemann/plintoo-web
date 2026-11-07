@@ -103,4 +103,4 @@ Left off on purpose: pricing link, testimonials, Stanford and Revolut figures (o
 ### Revision 2026-11-07, third pass: Next.js and the v11 film
 
 - The site is now a Next.js app (App Router): `app/page.tsx`, `components/`, assets in `public/`. Vercel builds it with `npm run build`; check that the Vercel project's framework setting is "Next.js" (it was a static page before).
-- The film is v11 (`2026-11-06_manifesto_video_v11_vertical.mp4`, 1080×1920, 105 s), shown upright next to its captions. There is no landscape v11; v10 is landscape but carries the older captions. If a landscape film is wanted for the hero, render v11 in 16:9 from `2026-11-06_manifesto_video_render_v11.py`.
+- Film: a landscape v11 was rendered on 2026-11-07 (`2026-11-07_manifesto_video_render_v11_landscape.py` in the vault's Plintoo folder: v10's frame and drawings with v11's three new captions, same music). Wide screens get the landscape film; phones (640 px and narrower) get the vertical Instagram cut.

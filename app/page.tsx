@@ -128,37 +128,34 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 02 The film, v11 */}
+        {/* 02 The film, v11: landscape on wide screens, the vertical cut on phones */}
         <section className="film" id="film">
           <div className="wrap">
             <Kick n="02">The film</Kick>
-            <div className="grid">
-              <div className="rv">
-                <h2 className="big" style={{ fontSize: "clamp(44px,6vw,96px)" }}>
-                  One command centre.
-                  <br />
-                  <span>Any AI model.</span>
-                </h2>
-                <div className="lines">
-                  The right one for each job.
-                  <br />
-                  <b>Your data. Your memory. Your model.</b>
-                  <br />
-                  Owned by the practice, not rented.
-                </div>
-              </div>
-              <div className="rv">
-                <div className="frame">
-                  <video id="filmv" muted loop playsInline preload="metadata" controls>
-                    <source src="/manifesto-v11.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                <div className="meta">
-                  <span>PLINTOO · MANIFESTO</span>
-                  <span>01:45</span>
-                </div>
+            <div className="head rv">
+              <h2 className="big" style={{ fontSize: "clamp(44px,6vw,96px)" }}>
+                One command centre.
+                <br />
+                <span>Any AI model.</span>
+              </h2>
+              <div className="lines">
+                The right one for each job.
+                <br />
+                <b>Your data. Your memory. Your model.</b>
+                <br />
+                Owned by the practice, not rented.
               </div>
             </div>
+          </div>
+          <div className="frame rv">
+            <video id="filmv" muted loop playsInline preload="metadata" controls poster="/manifesto-poster.jpg">
+              <source src="/manifesto-v11-vertical.mp4" type="video/mp4" media="(max-width: 640px)" />
+              <source src="/manifesto-v11-landscape.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className="meta">
+            <span>PLINTOO · MANIFESTO</span>
+            <span>01:45</span>
           </div>
         </section>
 
