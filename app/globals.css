@@ -1,0 +1,7 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#080A0C;color:#F4F6F8;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.mark{display:flex;align-items:center;gap:18px}
+.mark svg{width:56px;height:56px;display:block}
+.mark b{font-weight:600;font-size:22px;letter-spacing:.34em}
