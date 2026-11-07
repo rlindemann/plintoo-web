@@ -93,3 +93,9 @@ Left off on purpose: pricing link, testimonials, Stanford and Revolut figures (o
 | Form posts to `[FORM_ENDPOINT]` | Set the form service URL | Join |
 | "Command centre" in the hero, "harness" in the body | Decide which is the headline word | Hero, how it works |
 | No menu on phones | Add a phone menu, or accept the button only | Header |
+
+### Revision 2026-11-07, second pass: Plintoo style and the DEIXIS menu
+
+- Look follows `plintoo/DESIGN.md` (Barlow, Barlow Semi Condensed, IBM Plex Mono for figures, square corners, one blue) and the sign-in directions in `plintoo/research/shell/landing.html`: the London map hero (direction A) and the dial (direction E).
+- Navbar follows the DEIXIS site (`deixis/components/navbar.tsx`): centred mark that shrinks on scroll, menu button on the right, full-page blue overlay with large right-aligned items; Plintoo's four groups sit under each item.
+- The hero map, its site outlines and the "SITE 01 · 0.62 ha" label are an illustration and are labelled as one. The prototype's counters (London sites read, policies, decisions recorded) were left out because they are illustrative figures.
