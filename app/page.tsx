@@ -1,5 +1,4 @@
 import Clock from "./Clock";
-import Ask from "./Ask";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       </div>
       <div className="rule" aria-hidden="true" />
       <p className="line">In private pilot with a small group of practices.</p>
-      <Ask />
       <Clock />
     </main>
   );
