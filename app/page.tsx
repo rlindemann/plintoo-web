@@ -1,4 +1,5 @@
 import Clock from "./Clock";
+import Ask from "./Ask";
 
 export default function Home() {
   return (
@@ -12,9 +13,7 @@ export default function Home() {
       </div>
       <div className="rule" aria-hidden="true" />
       <p className="line">In private pilot with a small group of practices.</p>
-      <a className="ask" href="mailto:ralf@deixis.design?subject=Plintoo%20access">
-        Request access <span aria-hidden="true">→</span>
-      </a>
+      <Ask />
       <Clock />
     </main>
   );
