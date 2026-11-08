@@ -1,7 +1,17 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{background:#080A0C;color:#F4F6F8;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-main{min-height:100vh;display:flex;align-items:center;justify-content:center}
+main{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
 .mark{display:flex;align-items:center;gap:18px}
 .mark svg{width:56px;height:56px;display:block}
 .mark b{font-weight:600;font-size:22px;letter-spacing:.34em}
+.rule{width:240px;height:2px;background:#409CFF;margin:36px 0 26px;transform:scaleX(0);transform-origin:left;animation:draw 1.4s ease-out .4s forwards}
+.line{font-size:16px;color:#A6AFBA}
+.ask{margin-top:18px;font-size:15px;font-weight:500;color:#F4F6F8;text-decoration:none;border-bottom:1px solid #39414B;padding-bottom:3px}
+.ask:hover{border-color:#409CFF}
+.ask:focus-visible{outline:2px solid #409CFF;outline-offset:3px}
+.status{position:fixed;left:0;right:0;bottom:28px;display:flex;justify-content:center;align-items:center;gap:8px;font:400 12px "IBM Plex Mono",monospace;color:#A6AFBA}
+.status i{width:8px;height:8px;background:#409CFF;display:inline-block;animation:blink 1.6s steps(2) infinite}
+@keyframes draw{to{transform:scaleX(1)}}
+@keyframes blink{50%{opacity:.2}}
+@media (prefers-reduced-motion:reduce){.rule{animation:none;transform:none}.status i{animation:none}}

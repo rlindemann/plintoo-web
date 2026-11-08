@@ -1,3 +1,5 @@
+import Clock from "./Clock";
+
 export default function Home() {
   return (
     <main>
@@ -8,6 +10,12 @@ export default function Home() {
         </svg>
         <b>PLINTOO</b>
       </div>
+      <div className="rule" aria-hidden="true" />
+      <p className="line">In private pilot with a small group of practices.</p>
+      <a className="ask" href="mailto:ralf@deixis.design?subject=Plintoo%20access">
+        Request access <span aria-hidden="true">→</span>
+      </a>
+      <Clock />
     </main>
   );
 }
