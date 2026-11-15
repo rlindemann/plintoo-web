@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| Status | Draft 0.1 |
-| Date | 2026-10-11 |
+| Status | Draft 0.2 |
+| Date | 2026-11-15 (addresses, profession pages and research pages added) |
 | Owner | Ralf Lindemann (DEIXIS DESIGN LTD) |
 | Repo | `plintoo-web` (the public site). The hosting edge and the scheduled data loading jobs live in a separate repo, `plintoo-data`. |
 
@@ -30,6 +30,26 @@ Out of scope: the Plintoo platform itself (chat, memory, tools), the hosting edg
 - **Competitors Ralf has named:** OmniChat, AEC Foundry, vBRIEF. He also sees practices building their own retrieval-augmented generation (RAG) systems and chat interfaces as a threat.
 - **Build status (his note, 2026-10-02):** the infrastructure is basically there, but Plintoo is not ready to run end to end. Agents still need to be built and connected per workflow.
 - **Ways to get it that Ralf has described:** rented (hosted by DEIXIS); custom developed for a company with a head start; and, as an idea for small offices and single architects, installed through Docker on their own desktops.
+
+### Names (agreed in conversation, 2026-11-15)
+
+| Level | Name | What it is |
+|---|---|---|
+| Platform | **Plintoo** | The whole product: one sign-in and one data layer |
+| Profession | **Plintoo for Architects**, for Developers, for Planners, for Investors | What one profession is offered first. The code calls this a practice. |
+| Topic | Planning, Real estate, Design, Environment, Transport, Heritage | A shelf of tools on one subject, shared by every profession. The code calls this a domain. |
+| Study | **Station Study**, Site Appraisal, … | A finished piece of work across topics. The code calls this a pack. |
+| View | Map, Report, Table, Chat | The ways of looking at any result inside the app |
+| Data | **Plintoo Data** | What every view reads: the `plintoo-data` tables |
+
+The architects' offer is one profession inside Plintoo, not a separate product. A study, such as the station study, can appear under several professions.
+
+### Addresses (agreed in conversation, 2026-11-15)
+
+- **`plintoo.app`** is this public site.
+- The app (the platform itself) is a separate thing at a separate address, chosen later. `my.plintoo.app` was suggested and is not decided. The site's "Sign in" links there.
+- Keeping the two on separate addresses means no routing between them. Serving both from `plintoo.app` is possible later, but the app already uses `/login`, `/c/`, `/api/` and `/assets/`, so the site must never use those paths.
+- `.app` addresses only work over HTTPS.
 
 ## 3. Positioning the site must carry
 
@@ -73,8 +93,11 @@ What Ralf wants from the incubator, which shapes what the site needs to do: firs
 ## 6. Site map
 
 ```
-PUBLIC SITE
-Home
+PUBLIC SITE (plintoo.app)
+Home                                   /
+For each profession                    /architects, /developers, /planners, /investors
+Research                               /research
+   One page per study                  /research/stations, /research/…
 Product
    Overview (the command centre)
    Decision record (DIKTON)
@@ -113,6 +136,9 @@ Status key: **READY** can be built now. **BLOCKED** needs a decision in section 
 | Page | Purpose | Must contain | Primary action | Status |
 |---|---|---|---|---|
 | Home | Say what it is and who it is for | Strapline, one-sentence claim, three-line description, who it is for, how you get it | Request a demo | READY (wording draft) |
+| For each profession (`/architects`, …) | Say what Plintoo does for one profession | Its questions, the topics and studies it uses, one worked example | Request a demo | BLOCKED on which professions come first (decision 3) |
+| Research index (`/research`) | Show the work done with Plintoo | One entry per study: question, area, date, data used | Open a study | READY once one study is published |
+| Research / Stations (`/research/stations`) | The station study: findings, method and a public map of every station | Findings, method, sources with dates, a map of stations in Great Britain with development capacity and constraints. Only open-licence tables; the building ages, built from EPC data, stay out of public pages | Request a demo | BLOCKED on decision 14 (whether to publish) |
 | Product / Overview | Explain the command centre | One place to control tools, models and memory; what company memory means in practice | Request a demo | READY |
 | Product / Decision record | Show the distinct part | What a decision record holds (the decision, the reasons, the evidence, who owned it); DIKTON as a feature | Request a demo | READY |
 | Product / Models | Model choice | Model-agnostic: which providers and local models are supported (list to confirm from the platform) | None | BLOCKED on the confirmed model list |
@@ -180,7 +206,8 @@ Status key: **READY** can be built now. **BLOCKED** needs a decision in section 
 | 10 | Is "decisions, not documents" the website's positioning, or only the pitch's? | Home wording depends on it | Home, Product | Confirm or replace |
 | 11 | Is Plintoo the Decision Infrastructure half of DEIXIS's Decision Design? | He agreed and then questioned it on 2026-10-08; it changes how the About page describes the link to DEIXIS | About | Settle, or leave DEIXIS out of the first release |
 | 12 | Company details and legal text for terms, privacy and cookies | Required to go live | Legal | Provide company name, number, address; legal text to be written or reviewed |
-| 13 | Domain name and site technology stack | Not stated anywhere I have read | Everything | State them |
+| 13 | Domain name and site technology stack | Domain answered 2026-11-15: `plintoo.app` is the public site, and the app gets its own address later. Stack still not stated | Everything | State the stack |
+| 14 | Can the station study be published, and under whose name? | It was made for a client report (Supervene, TBW–HGS) | Research / Stations | Confirm with the client what may be shown |
 
 ## 12. Order of build
 
