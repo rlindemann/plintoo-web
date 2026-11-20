@@ -2,10 +2,10 @@
 
 | | |
 |---|---|
-| Status | Draft 0.2 |
-| Date | 2026-11-15 (addresses, profession pages and research pages added) |
+| Status | Draft 0.3 |
+| Date | 2026-11-20 (the app is built here, behind sign-up, at `plintoo.app`) |
 | Owner | Ralf Lindemann (DEIXIS DESIGN LTD) |
-| Repo | `plintoo-web` (the public site). The hosting edge and the scheduled data loading jobs live in a separate repo, `plintoo-data`. |
+| Repo | `plintoo-web` (the public site and, behind sign-up, the app's detailed views). The hosting edge and the scheduled data loading jobs live in a separate repo, `plintoo-data`. |
 
 Every statement about Plintoo below comes from Ralf's own notes, dated where the date matters. Anything he has not decided is marked **OPEN** and collected in section 11. Nothing in this file invents a price, a customer, a date or a feature.
 
@@ -20,7 +20,9 @@ The Plintoo website does four jobs:
 3. Holds the full documentation, visible to customers who are logged in.
 4. Gives a prospect a way to talk to Ralf (demo, quote, custom workflow).
 
-Out of scope: the Plintoo platform itself (chat, memory, tools), the hosting edge and the data loading jobs (`plintoo-data`), and the decision-capture app DIKTON as a product (it is part of Plintoo and appears on this site only as a feature).
+In scope since 2026-11-20: the app's detailed views of a workflow or a piece of research, which a customer opens after signing up (section 2, Addresses).
+
+Out of scope: the chat, memory and tools of the platform (the `plintoo` repo, until Ralf decides otherwise), the hosting edge and the data loading jobs (`plintoo-data`), and the decision-capture app DIKTON as a product (it is part of Plintoo and appears on this site only as a feature).
 
 ## 2. Background
 
@@ -46,9 +48,9 @@ The architects' offer is one profession inside Plintoo, not a separate product. 
 
 ### Addresses (agreed in conversation, 2026-11-15)
 
-- **`plintoo.app`** is this public site.
-- The app (the platform itself) is a separate thing at a separate address, chosen later. `my.plintoo.app` was suggested and is not decided. The site's "Sign in" links there.
-- Keeping the two on separate addresses means no routing between them. Serving both from `plintoo.app` is possible later, but the app already uses `/login`, `/c/`, `/api/` and `/assets/`, so the site must never use those paths.
+- **`plintoo.app`** is the landing page for customers: the public site.
+- **Decided 2026-11-20 (replaces the 2026-11-15 line that the app gets a separate address later):** the app is built in this repo, `plintoo-web`, and served from `plintoo.app`. Once a customer has registered and signed up, the same site opens a more detailed view of a workflow or of a piece of research than the public pages show.
+- Still **OPEN**: whether the chat (the `plintoo` repo, on LibreChat) moves here too or stays at its own address. While it stays apart, the site must not use the paths the chat already uses (`/login`, `/c/`, `/api/`, `/assets/`), so the two can be served from one address later.
 - `.app` addresses only work over HTTPS.
 
 ## 3. Positioning the site must carry
@@ -121,6 +123,8 @@ CUSTOMER AREA (login)
 Sign up / Sign in
 Checkout
 Dashboard
+Workflows, in detail                   one page per workflow, beyond its public page
+Research, in detail                    one page per study, beyond its public page (Map, Report, Table)
 Downloads
 Team and seats
 Billing and invoices
@@ -154,6 +158,8 @@ Status key: **READY** can be built now. **BLOCKED** needs a decision in section 
 | Sign up / Sign in | Customer accounts | Email and password or single sign-on (OPEN), password reset | Sign in | BLOCKED on authentication choice |
 | Checkout | Take payment | Plan, seats, payment, invoice details | Pay | BLOCKED on pricing, payment provider and product readiness |
 | Dashboard | Customer home | Plan, status, link to open the workspace | Open workspace | BLOCKED on `plintoo-data` provisioning |
+| Workflow, in detail | The full view of one workflow for a signed-up customer | Everything on its public page, then the workflow run on the customer's own question, reading `plintoo-data` | Run the workflow | BLOCKED on decisions 3 and 6 |
+| Research, in detail | The full view of one study for a signed-up customer | Everything on its public page, then the full map, report and tables, including data kept off public pages | Open the map | BLOCKED on decisions 6 and 14 |
 | Downloads | Deliver the install | Docker package, licence key, install steps | Download | BLOCKED on whether Docker install is offered and how licences are enforced |
 | Team and seats | Manage people | Invite, remove, seat count | Invite | BLOCKED on pricing model |
 | Billing and invoices | Manage payment | Invoices, card, plan change, cancel | Update | BLOCKED on payment provider |
@@ -206,7 +212,7 @@ Status key: **READY** can be built now. **BLOCKED** needs a decision in section 
 | 10 | Is "decisions, not documents" the website's positioning, or only the pitch's? | Home wording depends on it | Home, Product | Confirm or replace |
 | 11 | Is Plintoo the Decision Infrastructure half of DEIXIS's Decision Design? | He agreed and then questioned it on 2026-10-08; it changes how the About page describes the link to DEIXIS | About | Settle, or leave DEIXIS out of the first release |
 | 12 | Company details and legal text for terms, privacy and cookies | Required to go live | Legal | Provide company name, number, address; legal text to be written or reviewed |
-| 13 | Domain name and site technology stack | Domain answered 2026-11-15: `plintoo.app` is the public site, and the app gets its own address later. Stack still not stated | Everything | State the stack |
+| 13 | Domain name and site technology stack | Domain answered 2026-11-15: `plintoo.app` is the public site. 2026-11-20: the app's detailed views are built here too, behind sign-up. The repo is Next.js on Vercel; whether that is the confirmed stack is not stated | Everything | Confirm the stack |
 | 14 | Can the station study be published, and under whose name? | It was made for a client report (Supervene, TBW–HGS) | Research / Stations | Confirm with the client what may be shown |
 
 ## 12. Order of build
