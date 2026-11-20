@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | Status | Draft 0.3 |
-| Date | 2026-11-20 (the app is built here, behind sign-up, at `plintoo.app`) |
+| Date | 2026-11-20 (the app is built here: `app.plintoo.app` for the app, `plintoo.app/research/…` for the studies) |
 | Owner | Ralf Lindemann (DEIXIS DESIGN LTD) |
 | Repo | `plintoo-web` (the public site and, behind sign-up, the app's detailed views). The hosting edge and the scheduled data loading jobs live in a separate repo, `plintoo-data`. |
 
@@ -48,8 +48,10 @@ The architects' offer is one profession inside Plintoo, not a separate product. 
 
 ### Addresses (agreed in conversation, 2026-11-15)
 
-- **`plintoo.app`** is the landing page for customers: the public site.
-- **Decided 2026-11-20 (replaces the 2026-11-15 line that the app gets a separate address later):** the app is built in this repo, `plintoo-web`, and served from `plintoo.app`. Once a customer has registered and signed up, the same site opens a more detailed view of a workflow or of a piece of research than the public pages show.
+- **`plintoo.app`** is the landing page for customers: the public site. Research lives under it, one study per page: `plintoo.app/research/stations`, `plintoo.app/research/…`.
+- **`app.plintoo.app`** is the app (decided 2026-11-20, replacing the 2026-11-15 line that the app's address would be chosen later and that `my.plintoo.app` was only a suggestion). Once a customer has registered and signed up, it opens the more detailed view of a workflow or of a study than the public pages show.
+- Both are built in this repo, `plintoo-web`: one Next.js project serving both addresses.
+- Other parts of Plintoo, such as Bildhaus, may appear on these pages, named by what they do (Assets), per the rule in `LAUNCH_PRD.md`.
 - Still **OPEN**: whether the chat (the `plintoo` repo, on LibreChat) moves here too or stays at its own address. While it stays apart, the site must not use the paths the chat already uses (`/login`, `/c/`, `/api/`, `/assets/`), so the two can be served from one address later.
 - `.app` addresses only work over HTTPS.
 
@@ -119,7 +121,7 @@ About
 Contact / Request a demo
 Legal: terms, privacy, cookies
 
-CUSTOMER AREA (login)
+CUSTOMER AREA (login, app.plintoo.app)
 Sign up / Sign in
 Checkout
 Dashboard
@@ -212,7 +214,7 @@ Status key: **READY** can be built now. **BLOCKED** needs a decision in section 
 | 10 | Is "decisions, not documents" the website's positioning, or only the pitch's? | Home wording depends on it | Home, Product | Confirm or replace |
 | 11 | Is Plintoo the Decision Infrastructure half of DEIXIS's Decision Design? | He agreed and then questioned it on 2026-10-08; it changes how the About page describes the link to DEIXIS | About | Settle, or leave DEIXIS out of the first release |
 | 12 | Company details and legal text for terms, privacy and cookies | Required to go live | Legal | Provide company name, number, address; legal text to be written or reviewed |
-| 13 | Domain name and site technology stack | Domain answered 2026-11-15: `plintoo.app` is the public site. 2026-11-20: the app's detailed views are built here too, behind sign-up. The repo is Next.js on Vercel; whether that is the confirmed stack is not stated | Everything | Confirm the stack |
+| 13 | Domain name and site technology stack | Domain answered 2026-11-15: `plintoo.app` is the public site. 2026-11-20: the app is `app.plintoo.app`, built here too, behind sign-up; studies are at `plintoo.app/research/…`. The repo is Next.js on Vercel; whether that is the confirmed stack is not stated | Everything | Confirm the stack |
 | 14 | Can the station study be published, and under whose name? | It was made for a client report (Supervene, TBW–HGS) | Research / Stations | Confirm with the client what may be shown |
 
 ## 12. Order of build
