@@ -11,19 +11,19 @@ export default function Research() {
   const { stations, sources } = study();
   return (
     <main className="page">
-      <p className="eyebrow">Research</p>
-      <h1>Studies made with Plintoo</h1>
+      <section style={{ padding: "16px", borderBottom: "1px solid var(--line)" }}>
+        <p className="kicker">Research</p>
+        <h1>Studies made with Plintoo</h1>
+      </section>
       <ul className="studies">
         <li>
           <Link href="/research/stations">
             <h2>Land around every railway station</h2>
             <p>
               How much land within 1 km of each of {whole(stations.length)} stations is free of
-              planning and physical constraints, and how many homes it could hold.
+              constraints, and how many homes it could hold.
             </p>
-            <p className="meta">
-              Great Britain and Northern Ireland · data of {day(sources.products[0].created_at)}
-            </p>
+            <p className="note">Great Britain and Northern Ireland · data of {day(sources.products[0].created_at)}</p>
           </Link>
         </li>
       </ul>
