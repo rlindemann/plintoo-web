@@ -1,0 +1,124 @@
+/* Research pages in Plintoo's house style, as the platform's map viewer and map plate draw it
+   (plintoo/tools/outputs/viewer/map, tools/outputs/plate/style.yaml): the map is the page,
+   everything else is a square instrument with a 1 px rule, and the data is the only colour. */
+.research{
+  --bg:#ffffff;--fg:#111111;--muted:#6b6b6b;--line:#111111;--soft:#e4e4e4;--panel:rgba(255,255,255,.94);
+  --data:#0EA5F0;--data-ink:#0B6FA3;
+  min-height:100vh;background:var(--bg);color:var(--fg);
+  font:13px/1.45 "Space Grotesk",system-ui,sans-serif;font-variant-numeric:tabular-nums;
+}
+@media (prefers-color-scheme:dark){
+  .research{--bg:#0b0b0b;--fg:#f2f2f2;--muted:#8f8f8f;--line:#f2f2f2;--soft:#262626;--panel:rgba(11,11,11,.9);--data-ink:#7FD0F7}
+}
+.research *{box-sizing:border-box}
+.research a{color:inherit;text-underline-offset:3px}
+.research :focus-visible{outline:2px solid var(--data);outline-offset:2px}
+.research main.page{display:block;min-height:0;text-align:left;padding:0;margin:0;max-width:none}
+
+/* The bar: a thin strip above every research page. */
+.bar{display:flex;align-items:center;justify-content:space-between;height:44px;padding:0 16px;border-bottom:1px solid var(--line)}
+.bar .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.bar .brand svg{width:20px;height:20px;display:block}
+.bar .brand rect{fill:var(--fg)}
+.bar .brand path{fill:var(--bg)}
+.bar .brand b{font-weight:500;font-size:12px;letter-spacing:.3em}
+.bar nav{display:flex;gap:18px;font-size:12px}
+.bar nav a{text-decoration:none;color:var(--muted)}
+.bar nav a[aria-current="page"],.bar nav a:hover{color:var(--fg)}
+
+/* The plate: the map on the left, an information column on the right third. */
+.research main.plate{display:grid;grid-template-columns:minmax(0,2fr) minmax(320px,1fr);height:calc(100vh - 44px);align-items:stretch;justify-content:stretch}
+.plate .stage{position:relative;min-height:0;border-right:1px solid var(--line)}
+.plate .column{overflow:auto;min-height:0}
+.mapbox{position:absolute;inset:0}
+.column section{padding:14px 16px;border-bottom:1px solid var(--line)}
+.column section:last-child{border-bottom:0}
+
+.kicker{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.kicker a{color:var(--muted)}
+.research h1{font-size:20px;font-weight:500;line-height:1.2;margin:0}
+.research h2{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:0 0 10px}
+.where{color:var(--muted);margin:4px 0 0}
+.note{color:var(--muted);font-size:12px;margin:8px 0 0}
+.prose p{margin:0 0 8px}
+
+/* Figures: a label in light over each value, as the viewer's call-out card. */
+.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;margin:0}
+.figs dt{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.figs dd{margin:0;font-size:18px;line-height:1.2}
+.figs .wide{grid-column:1/-1}
+.figs .big dd{font-size:28px}
+
+/* Instruments over the map. */
+.instrument{position:absolute;z-index:2;background:var(--panel);border:1px solid var(--line)}
+.legend{right:10px;top:10px;padding:6px 10px;display:grid;gap:2px;font-size:12px}
+.legend .row{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.legend i{width:10px;height:10px;display:inline-block;border:1px solid var(--line)}
+.legend i.round{border-radius:50%}
+.status{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);z-index:1}
+
+/* Layers: the legend in the column, one row per layer, ticked to show it. */
+.layers{display:grid;gap:0}
+.layers label{display:grid;grid-template-columns:14px 12px minmax(0,1fr) auto;align-items:center;gap:8px;padding:4px 0;cursor:pointer;border-bottom:1px solid var(--soft)}
+.layers label:last-child{border-bottom:0}
+.layers input{margin:0;width:12px;height:12px;accent-color:var(--fg)}
+.layers i{width:10px;height:10px;border:1px solid var(--line)}
+.layers span.value{color:var(--muted);font-size:12px}
+.layers em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:6px}
+.layers label.off{color:var(--muted)}
+.layers label.hot{background:var(--soft)}
+
+.pairs{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;margin:0}
+.pairs .pair{display:contents}
+.pairs dt{color:var(--muted)}
+.pairs dd{margin:0;text-align:right}
+
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.bars li{display:grid;grid-template-columns:76px minmax(0,1fr) 52px;gap:8px;align-items:center;font-size:12px}
+.bars .track{height:8px;border:1px solid var(--line)}
+.bars .fill{display:block;height:100%;background:var(--fg)}
+.bars .value{text-align:right;color:var(--muted)}
+
+/* The list beside the overview map: a row lights its station on the map. */
+.find{display:flex;gap:8px;margin-bottom:8px}
+.find input,.find select{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:0;padding:5px 8px;min-width:0}
+.find input{flex:1}
+.list{width:100%;border-collapse:collapse;font-size:12px}
+.list th{font-weight:400;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:4px 6px 4px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg)}
+.list th button{all:unset;cursor:pointer}
+.list td{padding:4px 6px 4px 0;border-bottom:1px solid var(--soft)}
+.list tr.hot td{background:var(--soft)}
+.list .num{text-align:right}
+.list a{text-decoration:none}
+.list a:hover{text-decoration:underline}
+.more{all:unset;cursor:pointer;text-decoration:underline;margin-top:8px;display:inline-block;font-size:12px}
+
+.photos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:1px solid var(--line)}
+.photos span{font-size:10px;color:var(--muted)}
+
+.studies{list-style:none;margin:0;padding:0}
+.studies a{display:block;text-decoration:none;padding:16px;border-bottom:1px solid var(--line)}
+.studies a:hover{background:var(--soft)}
+.studies h2{font-size:16px;color:var(--fg);text-transform:none;letter-spacing:0;font-weight:500;margin:0 0 4px}
+.sources{margin:0;padding-left:16px}
+.sources li{margin-bottom:6px;font-size:12px;overflow-wrap:anywhere}
+
+/* MapLibre's own controls and the call-out, squared off to match. */
+.research .maplibregl-ctrl-group{border-radius:0;border:1px solid var(--line);box-shadow:none;background:var(--panel)}
+.research .maplibregl-ctrl-group button{border-radius:0}
+.research .maplibregl-ctrl-attrib{background:var(--panel);font-size:10px}
+.research .maplibregl-popup-content{border-radius:0;border:1px solid var(--line);background:var(--panel);color:var(--fg);box-shadow:none;padding:10px 14px 12px;font:inherit}
+.research .maplibregl-popup-tip{display:none}
+.research .maplibregl-popup-close-button{font-size:16px;color:var(--muted)}
+.call h3{margin:0 0 8px;font-size:13px;font-weight:500}
+.call dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(96px,1fr));gap:8px 16px}
+.call dt{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.call dd{margin:0}
+.call a{display:inline-block;margin-top:10px}
+
+@media (max-width:800px){
+  .research main.plate{grid-template-columns:1fr;height:auto}
+  .plate .stage{height:70vh;border-right:0;border-bottom:1px solid var(--line)}
+  .plate .column{overflow:visible}
+}

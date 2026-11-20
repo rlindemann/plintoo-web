@@ -4,3 +4,7 @@ out
 .vercel
 next-env.d.ts
 *.tsbuildinfo
+
+# Station map outlines (about 1.3 GB): served locally for now; hosting is not decided.
+/public/station-shapes/
+/public/maplibre/
